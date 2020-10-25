@@ -1,17 +1,5 @@
 #!/bin/bash
 
-set -e
-TIME_FORMAT=`date "+%Y-%m-%d %H:%M:%S"`
-
-log()  {
-    print "${TIME_FORMAT} %b\n" "$*" > /dev/stderr;
-}
-
-fatal_error() {
-    print  "${TIME_FORMAT} \e[41mERROR:\033[0m %b\n" "$*" >&2;
-    exit 1
-}
-
 # check for utils
 script_needs() {
     command -v $1 >/dev/null 2>&1 || fatal_error "This script requires $1 but it's not installed. Please install it and run again."
